@@ -1,13 +1,15 @@
-package com.learningspringboot.springbootlearning.model;
+package com.learningspringboot.springbootlearning.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class User implements Serializable {
+public class UserDto implements Serializable {
     private String userId;
     private String userName;
     private String userPhoto;
     private String userGender;
     private String userAge;
+    private ArrayList<String> picks;
 
     public String getUserId() {
         return userId;
@@ -33,23 +35,12 @@ public class User implements Serializable {
         this.userPhoto = userPhoto;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userPhoto='" + userPhoto + '\'' +
-                ", userGender='" + userGender + '\'' +
-                ", userAge='" + userAge + '\'' +
-                '}';
-    }
-
-    public String getUserGender() {
+    public String getGender() {
         return userGender;
     }
 
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
+    public void setGender(String gender) {
+        this.userGender = gender;
     }
 
     public String getUserAge() {
@@ -58,5 +49,25 @@ public class User implements Serializable {
 
     public void setUserAge(String userAge) {
         this.userAge = userAge;
+    }
+
+    public ArrayList<String> getPicks() {
+        return picks;
+    }
+
+    public void setPicks(ArrayList<String> picks) {
+        this.picks = picks;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPhoto='" + userPhoto + '\'' +
+                ", gender='" + userGender + '\'' +
+                ", userAge='" + userAge + '\'' +
+                ", picks=" + picks +
+                '}';
     }
 }

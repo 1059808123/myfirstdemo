@@ -1,0 +1,32 @@
+package com.learningspringboot.springbootlearning.model;
+
+import java.io.Serializable;
+
+public class Pick implements Serializable {
+    private String fromPickId;
+    private String pickId;
+
+    public String getFromPickId() {
+        return fromPickId;
+    }
+
+    public void setFromPickId(String fromPickId) {
+        this.fromPickId = fromPickId;
+    }
+
+    public String getPickId() {
+        return pickId;
+    }
+
+    public void setPickId(String pickId) {
+        this.pickId = pickId;
+    }
+
+    @Override
+    public String toString() {
+        return "Pick{" +
+                "fromPickId='" + fromPickId + '\'' +
+                ", pickId='" + pickId + '\'' +
+                '}';
+    }
+}
