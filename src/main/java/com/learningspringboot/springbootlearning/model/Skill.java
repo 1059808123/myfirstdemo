@@ -11,6 +11,15 @@ public class Skill implements Serializable {
     private boolean isWarranted;
     private int hasNum;
     private String starComments;
+    private int skillId;
+
+    public int getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(int skillId) {
+        this.skillId = skillId;
+    }
 
     public String getUserId() {
         return userId;
@@ -79,6 +88,7 @@ public class Skill implements Serializable {
                 ", isWarranted=" + isWarranted +
                 ", hasNum=" + hasNum +
                 ", starComments='" + starComments + '\'' +
+                ", skillId=" + skillId +
                 '}';
     }
 }

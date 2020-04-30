@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Pick implements Serializable {
     private String fromPickId;
     private String pickId;
+    private String id;
 
     public String getFromPickId() {
         return fromPickId;
@@ -22,11 +23,20 @@ public class Pick implements Serializable {
         this.pickId = pickId;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Pick{" +
                 "fromPickId='" + fromPickId + '\'' +
                 ", pickId='" + pickId + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }
