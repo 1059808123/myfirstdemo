@@ -13,6 +13,7 @@ public class Skill implements Serializable {
     private String starComments;
     private int skillId;
 
+
     public int getSkillId() {
         return skillId;
     }

@@ -10,4 +10,10 @@ public class CoPlayerDto implements Serializable {
     private List<String> imgIntroduction;
     private String textIntroduction;
     private String audioIntroduction;
+    private String userName;
+    private String userPhoto;
+    private String userGender;
+    private String userAge;
+
+
 }
