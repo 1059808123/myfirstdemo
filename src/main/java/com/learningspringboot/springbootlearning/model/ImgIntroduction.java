@@ -5,6 +5,15 @@ import java.io.Serializable;
 public class ImgIntroduction implements Serializable {
     private String imgId;
     private String imgUrl;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getImgId() {
         return imgId;
@@ -25,8 +34,9 @@ public class ImgIntroduction implements Serializable {
     @Override
     public String toString() {
         return "ImgIntroduction{" +
-                "userId='" + imgId + '\'' +
+                "imgId='" + imgId + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 }

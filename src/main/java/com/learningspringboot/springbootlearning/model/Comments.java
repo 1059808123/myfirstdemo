@@ -1,17 +1,17 @@
 package com.learningspringboot.springbootlearning.model;
 
 public class Comments {
-    private String commentId;
+    private int commentId;
     private String name;
     private String commentPhoto;
     private String comment;
     private String starComment;
 
-    public String getCommentId() {
+    public int getCommentId() {
         return commentId;
     }
 
-    public void setCommentId(String commentId) {
+    public void setCommentId(int commentId) {
         this.commentId = commentId;
     }
 
@@ -50,7 +50,7 @@ public class Comments {
     @Override
     public String toString() {
         return "Comments{" +
-                "commentId='" + commentId + '\'' +
+                "commentId=" + commentId +
                 ", name='" + name + '\'' +
                 ", commentPhoto='" + commentPhoto + '\'' +
                 ", comment='" + comment + '\'' +

@@ -8,8 +8,8 @@ public class CoPlayer implements Serializable {
     private String tag;
     private String textIntroduction;
     private String audioId;
-    private String imgId;
-    private String commentId;
+    private int imgId;
+    private int commentId;
 
     public String getUserId() {
         return userId;
@@ -43,20 +43,12 @@ public class CoPlayer implements Serializable {
         this.audioId = audioId;
     }
 
-    public String getImgId() {
+    public int getImgId() {
         return imgId;
     }
 
-    public void setImgId(String imgId) {
+    public void setImgId(int imgId) {
         this.imgId = imgId;
-    }
-
-    public String getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
     }
 
     @Override
@@ -66,8 +58,16 @@ public class CoPlayer implements Serializable {
                 ", tag='" + tag + '\'' +
                 ", textIntroduction='" + textIntroduction + '\'' +
                 ", audioId='" + audioId + '\'' +
-                ", imgId='" + imgId + '\'' +
-                ", commentId='" + commentId + '\'' +
+                ", imgId=" + imgId +
+                ", commentId=" + commentId +
                 '}';
+    }
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
     }
 }
