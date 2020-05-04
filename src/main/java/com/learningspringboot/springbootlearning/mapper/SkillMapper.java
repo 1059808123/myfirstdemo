@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface SkillMapper {
     @Select("Select * From skill Where userId=#{id}")
-    public List<Pick> findSkill(String id);
+    public List<Skill> findSkill(String id);
 
     @Update("Update skill set userId=#{userId},name=#{name},ability=#{ability},price=#{price},isWarranted=#{isWarranted},hasNum=#{hasNum},starComments=#{starComments} Where skillId=#{skillId}")
     public void modifySkill(Skill skill);
