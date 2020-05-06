@@ -5,5 +5,6 @@ import com.learningspringboot.springbootlearning.model.WeChatLoginModel;
 
 public interface IUserService {
     //x public UserDto queryUser(String userId);
-    public void wxLogin(WeChatLoginModel weChatLoginModel);
+    public String wxLogin(WeChatLoginModel weChatLoginModel);
+
 }

@@ -34,19 +34,10 @@ public class CoPlayerService implements ICoPlayerService {
         for(int i = 0; i < coPlayers.size(); i++){
             String id = coPlayers.get(i).getUserId();
             User user = userMapper.selectById(id);
-            System.out.println(skillMapper.findSkill(id));
-            System.out.println(coPlayers.get(i).getTag());
-            System.out.println(audioIntroductionMapper.findAudio(id).getSrc());
-            System.out.println(imgIntroductionMapper.findImgIntroduction(id));
-            System.out.println(coPlayers.get(i).getTextIntroduction());
-            System.out.println(audioIntroductionMapper.findAudio(id).getSrc());
-            System.out.println(user.getUserName());
             //String userId, List<String> skills, String tag, List<String> imgIntroduction, String textIntroduction, String audioIntroduction, String userName, String userPhoto, String userGender, String userAge
             CoPlayerDto coPlayerDto = new CoPlayerDto(id,skillMapper.findSkill(id),coPlayers.get(i).getTag(),imgIntroductionMapper.findImgIntroduction(id),coPlayers.get(i).getTextIntroduction(),audioIntroductionMapper.findAudio(id).getSrc(),user.getUserName(),user.getUserPhoto(),user.getUserGender(),user.getUserAge());
-            //System.out.println(coPlayerDto.toString());
             coPlayerDtoList.add(coPlayerDto);
         }
-        //System.out.println(coPlayerDtoList.toString());
         return coPlayerDtoList;
     }
 }
