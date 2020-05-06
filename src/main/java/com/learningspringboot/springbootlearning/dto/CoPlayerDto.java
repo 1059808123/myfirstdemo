@@ -109,4 +109,20 @@ public class CoPlayerDto implements Serializable {
     public void setUserAge(String userAge) {
         this.userAge = userAge;
     }
+
+    @Override
+    public String toString() {
+        return "CoPlayerDto{" +
+                "userId='" + userId + '\'' +
+                ", skills=" + skills +
+                ", tag='" + tag + '\'' +
+                ", imgIntroduction=" + imgIntroduction +
+                ", textIntroduction='" + textIntroduction + '\'' +
+                ", audioIntroduction='" + audioIntroduction + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPhoto='" + userPhoto + '\'' +
+                ", userGender='" + userGender + '\'' +
+                ", userAge='" + userAge + '\'' +
+                '}';
+    }
 }

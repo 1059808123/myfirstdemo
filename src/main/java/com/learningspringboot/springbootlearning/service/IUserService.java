@@ -1,7 +1,9 @@
 package com.learningspringboot.springbootlearning.service;
 
 import com.learningspringboot.springbootlearning.dto.UserDto;
+import com.learningspringboot.springbootlearning.model.WeChatLoginModel;
 
 public interface IUserService {
-    public UserDto queryUser(String userId);
+    //x public UserDto queryUser(String userId);
+    public void wxLogin(WeChatLoginModel weChatLoginModel);
 }
