@@ -4,6 +4,7 @@ import com.learningspringboot.springbootlearning.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -15,8 +16,9 @@ public interface UserMapper {
     @Select("Select * From user Where userId=#{id}")
     public User selectById(String id);
 
-    @Insert("Insert into user (userId,userName,userPhoto,userGender,userAge)value(#{userId},#{userName},#{userPhoto},#{userGender},#{userAge}")
+    @Insert("Insert into user (userId,userName,userPhoto,userGender,userAge)value(#{userId},#{userName},#{userPhoto},#{userGender},#{userAge})")
     public  void insertUser(User user);
 
-
+    @Update("Update user Set userName=#{userName},userPhoto=#{userPhoto},userGender=#{userGender} Where userId=#{userId}")
+    public void upadateUser(User user);
 }

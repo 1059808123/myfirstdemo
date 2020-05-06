@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPObject;
 import com.learningspringboot.springbootlearning.mapper.PickMapper;
 import com.learningspringboot.springbootlearning.mapper.UserMapper;
+import com.learningspringboot.springbootlearning.model.User;
 import com.learningspringboot.springbootlearning.model.WeChatLoginModel;
 import com.learningspringboot.springbootlearning.service.IUserService;
 import org.apache.http.HttpEntity;
@@ -28,14 +29,19 @@ import java.util.*;
 @RestController
 public class UserServiceImpl implements IUserService {
     @Autowired(required = false)
-    private PickMapper pickMapper;
+    private UserMapper userMapper;
+    @Autowired(required = false)
+    private HasUser hasUser;
 
     @Override
-    public String wxLogin(WeChatLoginModel weChatLoginModel) {
+    public User wxLogin(WeChatLoginModel weChatLoginModel) {
+
+
         String content = null;
+        User user = new User();
         try{
             //向微信服务器发送请求获取session_key 以及openid
-            String urlFormat = "https://api.weixin.qq.com/sns/jscode2session?appid=wxc7a9a956c95e08a8&secret=ee2eae3b7aff8ad2352d35f701774f73&js_code=%s&grant_type=authorization_code";
+            String urlFormat = "https://api.weixin.qq.com/sns/jscode2session?appid=wxc7a9a956c95e08a8&secret=4aa5acb80507f8ad227c704ba7484757&js_code=%s&grant_type=authorization_code";
             String url = String.format(urlFormat, weChatLoginModel.getCode());
             CloseableHttpClient client = HttpClientBuilder.create().build();
             HttpGet get = new HttpGet(url.toString());
@@ -44,12 +50,26 @@ public class UserServiceImpl implements IUserService {
             content = EntityUtils.toString(responseEntity);
 
             System.out.println(content);
-
+            user = hasUser.hasAccount(content);
 
         }catch(Exception e){
             e.printStackTrace();
         }
-        return content;
+        return user;
     }
 
+    @Override
+    public void wxAddLogin(User user) {
+        try{
+            String i = user.getUserGender();
+            if(i=="1"){
+                user.setUserGender("male");
+            }else {
+                user.setUserGender("female");
+            }
+            userMapper.upadateUser(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

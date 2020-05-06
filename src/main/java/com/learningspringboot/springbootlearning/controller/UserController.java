@@ -1,10 +1,12 @@
 package com.learningspringboot.springbootlearning.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.learningspringboot.springbootlearning.model.User;
 import com.learningspringboot.springbootlearning.model.WeChatLoginModel;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.learningspringboot.springbootlearning.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: springbootlearning
@@ -14,9 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class UserController {
-    //@ResponseBody
+    @Autowired
+    private IUserService iUserService;
+    @ResponseBody
     @PostMapping("/login")
-    public void wechatLogin(@RequestBody WeChatLoginModel model){
-
+    public Object wechatLogin(@RequestBody WeChatLoginModel model){
+        JSONObject jsonObject = (JSONObject) JSON.toJSON(iUserService.wxLogin(model));
+        return jsonObject;
+    }
+    @ResponseBody
+    @PostMapping("/loginAdd")
+    public void updateUser(@RequestBody User user){
+        System.out.println(user);
+        iUserService.wxAddLogin(user);
     }
 }

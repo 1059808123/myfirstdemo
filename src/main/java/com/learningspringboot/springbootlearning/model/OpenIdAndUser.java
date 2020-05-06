@@ -1,11 +1,14 @@
 package com.learningspringboot.springbootlearning.model;
 
+import org.apache.ibatis.annotations.Mapper;
+
 /**
  * @program: springbootlearning
  * @description: Userid和openid关联表
  * @author: LiHongyan
  * @create: 2020-05-06 10:43
  **/
+
 public class OpenIdAndUser {
     private String openId;
     private String userId;

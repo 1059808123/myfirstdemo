@@ -8,7 +8,7 @@ package com.learningspringboot.springbootlearning.model;
  **/
 public class Result {
     private String openId;
-    private String session;
+    private String session_key;
 
     public String getOpenId() {
         return openId;
@@ -18,19 +18,19 @@ public class Result {
         this.openId = openId;
     }
 
-    public String getSession() {
-        return session;
-    }
-
-    public void setSession(String session) {
-        this.session = session;
-    }
-
     @Override
     public String toString() {
         return "Result{" +
                 "openId='" + openId + '\'' +
-                ", session='" + session + '\'' +
+                ", session_key='" + session_key + '\'' +
                 '}';
+    }
+
+    public String getSession_key() {
+        return session_key;
+    }
+
+    public void setSession_key(String session_key) {
+        this.session_key = session_key;
     }
 }
