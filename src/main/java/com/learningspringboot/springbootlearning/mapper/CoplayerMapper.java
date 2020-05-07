@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface CoplayerMapper {
-    @Select("Select * From coplayer Where userId")
+    @Select("Select * From coplayer Where userId=#{id}")
     public CoPlayer findCoplayer(String id);
 
     @Insert("Insert into coplayer (userId,tag,textIntroduction,audioId,imgId,commentId)value(#{userId},#{tag},#{textIntroduction},#{audioId},#{imgId},#{commentId})")

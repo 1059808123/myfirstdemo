@@ -50,7 +50,7 @@ public class HasUser {
             //若没有则注册
             if(openIdAndUser == null){
                 //产生随机账号
-                String Id = openId.toString().substring(0,5);
+                String Id = openId.toString().substring(6,10);
                 String verifyCode = String.valueOf(new Random().nextInt(89999) + 10000);
                 String userId = Id.concat(verifyCode);
                 //插入到相关表中

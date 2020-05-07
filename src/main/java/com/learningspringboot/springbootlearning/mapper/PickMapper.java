@@ -13,7 +13,7 @@ public interface PickMapper {
     @Insert("Insert into pick (fromUserId,pickId)value(#{fromUserId},#{pickId})")
     public void insertPick(String fromUserId, String pickId);
 
-    @Select("Select pickId From pick Where fromUserId=#{id}")
+    @Select("Select * From pick Where fromUserId=#{id}")
     public List<Pick> findPick(String id);
 
     @Delete("Delete from pick Where fromUserId=#{id} And pickId=#{pickId}")

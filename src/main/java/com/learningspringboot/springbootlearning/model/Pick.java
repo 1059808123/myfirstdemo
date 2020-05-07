@@ -3,16 +3,16 @@ package com.learningspringboot.springbootlearning.model;
 import java.io.Serializable;
 
 public class Pick implements Serializable {
-    private String fromPickId;
+    private String fromUserId;
     private String pickId;
-    private String id;
+    private int id;
 
-    public String getFromPickId() {
-        return fromPickId;
+    public String getFromUserId() {
+        return fromUserId;
     }
 
-    public void setFromPickId(String fromPickId) {
-        this.fromPickId = fromPickId;
+    public void setFromUserId(String fromUserId) {
+        this.fromUserId = fromUserId;
     }
 
     public String getPickId() {
@@ -23,20 +23,11 @@ public class Pick implements Serializable {
         this.pickId = pickId;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Pick{" +
-                "fromPickId='" + fromPickId + '\'' +
-                ", pickId='" + pickId + '\'' +
-                ", id='" + id + '\'' +
-                '}';
     }
 }

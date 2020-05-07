@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.learningspringboot.springbootlearning.dto.CoPlayerDto;
 import com.learningspringboot.springbootlearning.mapper.*;
 import com.learningspringboot.springbootlearning.model.CoPlayer;
+import com.learningspringboot.springbootlearning.model.Pick;
 import com.learningspringboot.springbootlearning.model.User;
 import com.learningspringboot.springbootlearning.service.ICoPlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class CoPlayerService implements ICoPlayerService {
     private ImgIntroductionMapper imgIntroductionMapper;
     @Autowired(required = false)
     private AudioIntroductionMapper audioIntroductionMapper;
+    @Autowired(required = false)
+    private PickMapper pickMapper;
+
+    private CoPlayerDto coPlayerDto;
 
     @Override
     public List<CoPlayerDto> showCoPlayers(int page, int start) {
@@ -39,5 +44,57 @@ public class CoPlayerService implements ICoPlayerService {
             coPlayerDtoList.add(coPlayerDto);
         }
         return coPlayerDtoList;
+    }
+
+    @Override
+    public CoPlayerDto findCoPlayer(String id) {
+        try {
+            CoPlayer coPlayer = coplayerMapper.findCoplayer(id);
+            User user = userMapper.selectById(id);
+            coPlayerDto = new CoPlayerDto(id, skillMapper.findSkill(id), coPlayer.getTag(), imgIntroductionMapper.findImgIntroduction(id), coPlayer.getTextIntroduction(), audioIntroductionMapper.findAudio(id).getSrc(), user.getUserName(), user.getUserPhoto(), user.getUserGender(), user.getUserAge());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return coPlayerDto;
+    }
+
+    @Override
+    public boolean isPick(String id, String pickId) {
+        boolean b = false;
+        try {
+            List<Pick> picks = pickMapper.findPick(id);
+            for (Pick pick : picks) {
+                if(pick.getPickId().equals(pickId)){
+                    b = true;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return b;
+    }
+
+    @Override
+    public boolean pick(String id, String pickId) {
+        boolean b = false;
+        try{
+            pickMapper.insertPick(id,pickId);
+            b = true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return b;
+    }
+
+    @Override
+    public boolean cancelPick(String id, String pickId) {
+        boolean b = false;
+        try{
+            pickMapper.cancelPick(id,pickId);
+            b = true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return b;
     }
 }
