@@ -19,4 +19,8 @@ public interface SkillMapper {
 
     @Insert("Insert into skill (userId,name,ability,price,isWarranted,hasNum,starComments)value(#{userId},#{name},#{ability},#{price},#{isWarranted},#{hasNum},#{starComments})")
     public void addSkill(Skill skill);
+
+    @Select("Select name From skill Where userId=#{id}")
+    public List<String> findSkillName(String id);
+
 }

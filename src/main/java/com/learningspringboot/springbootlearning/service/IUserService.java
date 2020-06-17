@@ -8,4 +8,5 @@ public interface IUserService {
     //x public UserDto queryUser(String userId);
     public User wxLogin(WeChatLoginModel weChatLoginModel);
     public void wxAddLogin(User user);
+    public User chatUserMessage(String id);
 }

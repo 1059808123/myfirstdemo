@@ -72,4 +72,10 @@ public class UserServiceImpl implements IUserService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public User chatUserMessage(String id) {
+        User user = userMapper.selectById(id);
+        return user;
+    }
 }

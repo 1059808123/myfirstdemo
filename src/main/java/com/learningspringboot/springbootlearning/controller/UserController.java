@@ -30,4 +30,10 @@ public class UserController {
         System.out.println(user);
         iUserService.wxAddLogin(user);
     }
+
+    @ResponseBody
+    @GetMapping("/chat")
+    public User chatUser(@RequestParam(name = "id")String id){
+        return iUserService.chatUserMessage(id);
+    }
 }

@@ -37,4 +37,16 @@ public class IndexController {
         return jsonArray;
         //return "asdas";
     }
+
+    @GetMapping("/pickShow")
+    @ResponseBody
+    public Object pickShow(@RequestParam(name = "page") int page, @RequestParam(name = "start") int start, @RequestParam("id")String userId){
+        JSONArray jsonArray = new JSONArray();
+        List<CoPlayerDto> coPlayerDtoList = iCoPlayerService.showPicks(page,start,userId);
+        for(CoPlayerDto coPlayerDto : coPlayerDtoList){
+            JSONObject jsonObject=(JSONObject)JSON.toJSON(coPlayerDto);
+            jsonArray.add(jsonObject);
+        }
+        return jsonArray;
+    }
 }

@@ -6,6 +6,24 @@ public class Comments {
     private String commentPhoto;
     private String comment;
     private String starComment;
+    private String userId;
+    private String gameName;
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public int getCommentId() {
         return commentId;

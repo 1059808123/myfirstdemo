@@ -22,4 +22,5 @@ public interface CoplayerMapper {
 
     @Select("Select * from coplayer limit #{start} , #{page}")
     public List<CoPlayer> findByIndex(int start, int page);
+
 }
